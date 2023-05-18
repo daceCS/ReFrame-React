@@ -7,7 +7,6 @@ const PostSchema = new mongoose.Schema({
   },
   Caption: {
     type: String,
-    required: true,
   },
   Votes: {
     type: Number,
