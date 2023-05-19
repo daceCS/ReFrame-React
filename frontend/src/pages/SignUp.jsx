@@ -1,18 +1,13 @@
 import "../css/signup.css";
+import { useState } from "react";
 
 function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const createAccount = async (username, password) => {
-    const account = await fetch("http://localhost/4000//api/accounts/create", {
-      username: username,
-      password: password,
-    });
-
-    console.log(account);
-  };
-
+  function createAccount() {
+    console.log(username, password);
+  }
   return (
     <div className="container">
       <div className="screen">
@@ -25,8 +20,10 @@ function SignUp() {
                 className="login__input"
                 id="username"
                 placeholder="Enter Username"
-                maxlength="14"
-                onInput={setUsername(e.target.value)}
+                maxLength="14"
+                onInput={(e) => {
+                  setUsername(e.target.value);
+                }}
               />
             </div>
             <div className="login__field">
@@ -36,14 +33,16 @@ function SignUp() {
                 className="login__input"
                 id="password"
                 placeholder="Enter Password"
-                onInput={setPassword(e.target.value)}
+                onInput={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </div>
             <button
               className="create-account-button"
               role="button"
               id="create-account-button"
-              onclick={createAccount}
+              onClick={createAccount}
             >
               Create account
             </button>
