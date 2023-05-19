@@ -83,7 +83,6 @@ const unfollowUser = async (req, res) => {
 
 module.exports = {
   createAccount,
-  updateFollowing,
   followUser,
   unfollowUser,
 };
