@@ -1,13 +1,19 @@
 import "../css/signup.css";
 import { useState } from "react";
+import Axios from "axios";
 
 function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  function createAccount() {
-    console.log(username, password);
-  }
+  const createAccount = async () => {
+    Axios.post("http://localhost:4000/api/accounts/create", {
+      username,
+      password,
+    }).then((res) => {
+      console.log(res);
+    });
+  };
   return (
     <div className="container">
       <div className="screen">
