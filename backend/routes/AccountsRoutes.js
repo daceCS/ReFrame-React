@@ -3,11 +3,14 @@ const {
   createAccount,
   followUser,
   unfollowUser,
+  loginAccount,
 } = require("../controllers/AccountController");
 const router = express.Router();
 
 // CREATE Account
 router.post("/create", createAccount);
+
+router.get("/login", loginAccount);
 
 // UPDATE Account Data
 

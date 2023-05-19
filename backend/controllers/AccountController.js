@@ -81,8 +81,14 @@ const unfollowUser = async (req, res) => {
   res.status(200).json(account);
 };
 
+const loginAccount = async (req, res) => {
+  const account = await Account.find({ username: username });
+  res.status(200).json(account);
+};
+
 module.exports = {
   createAccount,
   followUser,
   unfollowUser,
+  loginAccount,
 };
