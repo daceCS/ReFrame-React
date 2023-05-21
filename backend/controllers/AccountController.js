@@ -86,9 +86,15 @@ const loginAccount = async (req, res) => {
   res.status(200).json(account);
 };
 
+const sendImage = async (req, res) => {
+  console.log("here");
+  res.download("./images/cat0.jpg");
+};
+
 module.exports = {
   createAccount,
   followUser,
   unfollowUser,
   loginAccount,
+  sendImage,
 };

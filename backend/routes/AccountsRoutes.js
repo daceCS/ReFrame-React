@@ -4,6 +4,7 @@ const {
   followUser,
   unfollowUser,
   loginAccount,
+  sendImage,
 } = require("../controllers/AccountController");
 const router = express.Router();
 
@@ -11,6 +12,8 @@ const router = express.Router();
 router.post("/create", createAccount);
 
 router.get("/login", loginAccount);
+
+router.get("/image", sendImage);
 
 // UPDATE Account Data
 
