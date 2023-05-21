@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 function ExamplePost() {
@@ -12,7 +12,11 @@ function ExamplePost() {
       setSrc(imageUrl);
     });
   };
-  fetchImages();
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
   return <img src={src} alt="trial" width="30%" height="30%" />;
 }
 

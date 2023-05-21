@@ -4,6 +4,7 @@ import { useEffect } from "react";
 function User() {
   const { user } = useParams();
   function Example() {
+    console.log("yo");
     useEffect(() => {
       document.title = user;
     }, []);
