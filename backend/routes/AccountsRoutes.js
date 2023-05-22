@@ -13,7 +13,11 @@ router.post("/create", createAccount);
 
 router.get("/login", loginAccount);
 
-router.get("/image", sendImage);
+router.put("/follow-user", followUser);
+
+router.put("/unfollow-user", unfollowUser);
+
+router.get("/get-user-post", sendImage);
 
 // UPDATE Account Data
 
