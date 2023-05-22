@@ -1,51 +1,56 @@
+import "../css/signup&signin.css";
+import { useState } from "react";
+import Axios from "axios";
+
+
 function Login() {
   return (
-    <div className="container">
-      <div className="screen">
-        <div className="screen__content">
-          <div className="login">
-            <div className="login__field">
-              <i className="login__icon fas fa-user"></i>
+    <div className="inputContainer">
+      <div className="inputScreen">
+        <div className="inputScreen__content">
+          <div className="inputsDiv">
+            <div className="input__field">
+              <i className="input__icon fas fa-user"></i>
               <input
                 type="text"
-                className="login__input"
+                className="usernameAndpasswordInput"
                 id="username"
                 placeholder="Enter Username"
                 onkeypress="return event.charCode != 32"
                 maxlength="14"
               />
             </div>
-            <div className="login__field">
-              <i className="login__icon fas fa-lock"></i>
+            <div className="input__field">
+              <i className="input__icon fas fa-lock"></i>
               <input
                 type="password"
-                className="login__input"
+                className="usernameAndpasswordInput"
                 id="password"
                 placeholder="Enter Password"
                 onkeypress="return event.charCode != 32"
               />
             </div>
             <button
-              className="create-account-button"
+              className="login-button"
               role="button"
-              id="create-account-button"
+              id="login-button"
               onclick="login()"
             >
               Login
             </button>
             <br />
             <br />
-            <a href="/create-account" id="signup-link">
-              Dont have an account? Sign Up
+            <a href="/signup" id="signup-link">
+              Don't have an account? Sign Up
             </a>
           </div>
         </div>
 
-        <div className="screen__background">
-          <span className="screen__background__shape screen__background__shape4"></span>
-          <span className="screen__background__shape screen__background__shape3"></span>
-          <span className="screen__background__shape screen__background__shape2"></span>
-          <span className="screen__background__shape screen__background__shape1"></span>
+        <div className="inputScreen__background">
+          <span className="inputScreen__background__shape inputScreen__background__shape4"></span>
+          <span className="inputScreen__background__shape inputScreen__background__shape3"></span>
+          <span className="inputScreen__background__shape inputScreen__background__shape2"></span>
+          <span className="inputScreen__background__shape inputScreen__background__shape1"></span>
         </div>
       </div>
     </div>
