@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Post from "../Components/Post";
 
 function ExamplePost() {
   const [src, setSrc] = useState("");
@@ -17,7 +18,7 @@ function ExamplePost() {
     fetchImages();
   }, []);
 
-  return <img src={src} alt="trial" width="30%" height="30%" />;
+  return <Post caption="test" src={src} />;
 }
 
 export default ExamplePost;

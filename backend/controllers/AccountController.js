@@ -88,7 +88,7 @@ const loginAccount = async (req, res) => {
 
 const sendImage = async (req, res) => {
   console.log("here");
-  res.download("./images/cat0.jpg");
+  res.download("./images/testImg2.png");
 };
 
 module.exports = {
