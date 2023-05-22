@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Raleway, sans-serif;
+}
+body {
+  /* Same gang */
+  background: linear-gradient(90deg, #6f9f9c 10%, #152238 55%);
+}
+.inputContainer {
+  /* Same gang */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.inputScreen {
+  /* Same gang */
+  background: linear-gradient(90deg, #e2d8a5, #e1a36f);
+  position: relative;
+  height: 600px;
+  width: 360px;
+  box-shadow: 0px 0px 24px white;
+}
+.inputScreen__content {
+  /* Same gang */
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+.inputScreen__background {
+  /* Same gang */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+.inputScreen__background__shape {
+  /* Same gang */
+  transform: rotate(45deg);
+  position: absolute;
+}
+.inputScreen__background__shape1 {
+  /* Same gang */
+  height: 520px;
+  width: 520px;
+  background: #fff;
+  top: -50px;
+  right: 120px;
+  border-radius: 0 72px 0 0;
+}
+.inputScreen__background__shape2 {
+  /* Same gang */
+  height: 220px;
+  width: 220px;
+  background: linear-gradient(270deg, #cc5500, #c41e3a);
+  top: -172px;
+  right: 0;
+  border-radius: 32px;
+}
+.inputScreen__background__shape3 {
+  /* Same gang */
+  height: 540px;
+  width: 190px;
+  background: linear-gradient(270deg, #c41e3a, #cc5500);
+  top: -24px;
+  right: 0;
+  border-radius: 32px;
+}
+.inputScreen__background__shape4 {
+  /* Same gang */
+  height: 400px;
+  width: 200px;
+  background: linear-gradient(270deg, #cc5500, #c41e3a);
+  top: 420px;
+  right: 50px;
+  border-radius: 60px;
+}
+
+.inputsDiv {
+  /* Same gang */
+  width: 320px;
+  padding: 30px;
+  padding-top: 156px;
+}
+.input__field {
+  /* Same gang */
+  padding: 20px 0px;
+  position: relative;
+}
+.input__icon {
+  /* Same gang */
+  position: absolute;
+  top: 30px;
+  color: #7875b5;
+}
+.usernameAndpasswordInput {
+  /* Same gang */
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 75%;
+  transition: 0.2s;
+}
+.usernameAndpasswordInput:active,
+.usernameAndpasswordInput:focus,
+.usernameAndpasswordInput:hover {
+  /* Same gang */
+  outline: none;
+  border-bottom-color: #6a679e;
+}
+
+.create-account-button {
+  margin-top: 20px;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.create-account-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: create-account-button 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+@keyframes create-account-button {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.create-account-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.login-button {
+  margin-top: 20px;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.login-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: create-account-button 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+@keyframes login-button {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.login-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+#signin-link {
+  color: black;
+  font-weight: bold;
+}
+#signup-link {
+  color: black;
+  font-weight: bold;
+}
