@@ -1,4 +1,4 @@
-import "../css/signup.css";
+import "../css/signup&signin.css";
 import { useState } from "react";
 import Axios from "axios";
 
@@ -15,15 +15,15 @@ function SignUp() {
     });
   };
   return (
-    <div className="container">
-      <div className="screen">
-        <div className="screen__content">
-          <div className="login">
-            <div className="login__field">
-              <i className="login__icon fas fa-user"></i>
+    <div className="inputContainer">
+      <div className="inputScreen">
+        <div className="inputScreen__content">
+          <div className="inputsDiv">
+            <div className="input__field">
+              <i className="input__icon fas fa-user"></i>
               <input
                 type="text"
-                className="login__input"
+                className="usernameAndpasswordInput"
                 id="username"
                 placeholder="Enter Username"
                 maxLength="14"
@@ -32,11 +32,11 @@ function SignUp() {
                 }}
               />
             </div>
-            <div className="login__field">
-              <i className="login__icon fas fa-lock"></i>
+            <div className="input__field">
+              <i className="input__icon fas fa-lock"></i>
               <input
                 type="password"
-                className="login__input"
+                className="usernameAndpasswordInput"
                 id="password"
                 placeholder="Enter Password"
                 onInput={(e) => {
@@ -52,13 +52,18 @@ function SignUp() {
             >
               Create account
             </button>
+            <br />
+            <br />
+            <a href="/login" id="signin-link">
+              Have an account? Sign In
+            </a>
           </div>
         </div>
-        <div className="screen__background">
-          <span className="screen__background__shape screen__background__shape4"></span>
-          <span className="screen__background__shape screen__background__shape3"></span>
-          <span className="screen__background__shape screen__background__shape2"></span>
-          <span className="screen__background__shape screen__background__shape1"></span>
+        <div className="inputScreen__background">
+          <span className="inputScreen__background__shape inputScreen__background__shape4"></span>
+          <span className="inputScreen__background__shape inputScreen__background__shape3"></span>
+          <span className="inputScreen__background__shape inputScreen__background__shape2"></span>
+          <span className="inputScreen__background__shape inputScreen__background__shape1"></span>
         </div>
       </div>
     </div>
