@@ -5,8 +5,10 @@
   padding: 0;
   font-family: Raleway, sans-serif;
 }
-body {
+.signupAndSigninBackground {
   background: linear-gradient(45deg, #012340 25%, #eb9dad 55%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .inputContainer {
   display: flex;
