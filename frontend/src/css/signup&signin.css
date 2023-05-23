@@ -6,32 +6,27 @@
   font-family: Raleway, sans-serif;
 }
 body {
-  /* Same gang */
-  background: linear-gradient(90deg, #6f9f9c 10%, #152238 55%);
+  background: linear-gradient(45deg, #012340 25%, #eb9dad 55%);
 }
 .inputContainer {
-  /* Same gang */
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 115vh;
 }
 .inputScreen {
-  /* Same gang */
-  background: linear-gradient(90deg, #e2d8a5, #e1a36f);
+  background: linear-gradient(90deg, #94425c, #381117);
   position: relative;
   height: 600px;
   width: 360px;
-  box-shadow: 0px 0px 24px white;
+  box-shadow: 0px 0px 24px #381117;
 }
 .inputScreen__content {
-  /* Same gang */
   z-index: 1;
   position: relative;
   height: 100%;
 }
 .inputScreen__background {
-  /* Same gang */
   position: absolute;
   top: 0;
   left: 0;
@@ -42,66 +37,57 @@ body {
   clip-path: inset(0 0 0 0);
 }
 .inputScreen__background__shape {
-  /* Same gang */
   transform: rotate(45deg);
   position: absolute;
 }
 .inputScreen__background__shape1 {
-  /* Same gang */
   height: 520px;
   width: 520px;
-  background: #fff;
+  background: white;
   top: -50px;
   right: 120px;
   border-radius: 0 72px 0 0;
 }
 .inputScreen__background__shape2 {
-  /* Same gang */
   height: 220px;
   width: 220px;
-  background: linear-gradient(270deg, #cc5500, #c41e3a);
+  background: linear-gradient(270deg, #eb9dad, #d90d32);
   top: -172px;
   right: 0;
   border-radius: 32px;
 }
 .inputScreen__background__shape3 {
-  /* Same gang */
   height: 540px;
   width: 190px;
-  background: linear-gradient(270deg, #c41e3a, #cc5500);
+  background: linear-gradient(270deg, #d90d32, #eb9dad);
   top: -24px;
   right: 0;
   border-radius: 32px;
 }
 .inputScreen__background__shape4 {
-  /* Same gang */
   height: 400px;
   width: 200px;
-  background: linear-gradient(270deg, #cc5500, #c41e3a);
+  background: linear-gradient(270deg, #eb9dad, #d90d32);
   top: 420px;
   right: 50px;
   border-radius: 60px;
 }
 
 .inputsDiv {
-  /* Same gang */
   width: 320px;
   padding: 30px;
-  padding-top: 156px;
+  padding-top: 80px;
 }
 .input__field {
-  /* Same gang */
   padding: 20px 0px;
   position: relative;
 }
 .input__icon {
-  /* Same gang */
   position: absolute;
   top: 30px;
   color: #7875b5;
 }
 .usernameAndpasswordInput {
-  /* Same gang */
   border: none;
   border-bottom: 2px solid #d1d1d4;
   background: none;
@@ -114,7 +100,6 @@ body {
 .usernameAndpasswordInput:active,
 .usernameAndpasswordInput:focus,
 .usernameAndpasswordInput:hover {
-  /* Same gang */
   outline: none;
   border-bottom-color: #6a679e;
 }
@@ -138,15 +123,12 @@ body {
   content: "";
   background: linear-gradient(
     45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
+    #381117,
+    #eb9dad,
+    #fdf4eb,
+    #94425c,
+    #7b282b,
+    #f1262d
   );
   position: absolute;
   top: -2px;
@@ -203,15 +185,12 @@ body {
   content: "";
   background: linear-gradient(
     45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
+    #381117,
+    #eb9dad,
+    #fdf4eb,
+    #94425c,
+    #7b282b,
+    #f1262d
   );
   position: absolute;
   top: -2px;
