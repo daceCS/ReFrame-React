@@ -15,6 +15,8 @@ function SignUp() {
     });
   };
   return (
+    <body className =  "signupAndSigninBackground">
+    <div className="signindiv">
     <div className="inputContainer">
       <div className="inputScreen">
         <div className="inputScreen__content">
@@ -67,6 +69,8 @@ function SignUp() {
         </div>
       </div>
     </div>
+    </div>
+    </body>
   );
 }
 
