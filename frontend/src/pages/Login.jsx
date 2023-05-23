@@ -5,6 +5,7 @@ import Axios from "axios";
 
 function Login() {
   return (
+    <body className =  "signupAndSigninBackground">
     <div className="inputContainer">
       <div className="inputScreen">
         <div className="inputScreen__content">
@@ -54,6 +55,7 @@ function Login() {
         </div>
       </div>
     </div>
+    </body>
   );
 }
 
