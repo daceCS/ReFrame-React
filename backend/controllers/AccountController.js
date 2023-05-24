@@ -5,30 +5,66 @@ const createAccount = async (req, res) => {
   const { username, password } = req.body;
 
   // add doc to db
-  try {
-    const account = await Account.create({ username, password });
-    res.status(200).json(account);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
+  const accountCheck = await Account.find({ username: username });
+  console.log(accountCheck.length);
+
+  if (accountCheck.length === 0) {
+    try {
+      const account = await Account.create({ username, password });
+      res.status(200).json(account);
+      return;
+    } catch (err) {
+      res.status(400).json({ error: "Something Went Wrong" });
+      return;
+    }
+  } else {
+    console.log("Username Already Exist");
+    res.status(400).json({ error: "Username Already Exist" });
+    return;
   }
 };
 
+const loginAccount = async (req, res) => {
+  const { username, password } = req.body;
+
+  const account = await Account.find({
+    username: username,
+    password: password,
+  });
+
+  if (account.length === 1) {
+    res.status(200).json(account);
+  } else {
+    res.status(400).json({ error: "Something Went Wrong" });
+  }
+};
+
+const updateUser = async (req, res) => {
+  const { bio, username } = req.body;
+  const account = await Account.findOneAndUpdate(
+    { username: username },
+    {
+      bio: bio,
+    }
+  );
+  res.json(account);
+};
+
 const followUser = async (req, res) => {
-  const { username } = req.params;
-  const followedUser = req.body.follow;
+  const { follow, username } = req.body;
 
   const account = await Account.findOneAndUpdate(
     { username: username },
     {
       $push: {
-        following: followedUser,
+        following: follow,
       },
     }
   );
 
   const updateUserFollowCount = await Account.findOneAndUpdate(
     {
-      username: followedUser,
+      username: follow,
     },
     {
       $inc: {
@@ -48,21 +84,20 @@ const followUser = async (req, res) => {
 };
 
 const unfollowUser = async (req, res) => {
-  const { username } = req.params;
-  const followedUser = req.body.follow;
+  const { follow, username } = req.body;
 
   const account = await Account.findOneAndUpdate(
     { username: username },
     {
       $pull: {
-        following: followedUser,
+        following: follow,
       },
     }
   );
 
   const updateUserFollowCount = await Account.findOneAndUpdate(
     {
-      username: followedUser,
+      username: follow,
     },
     {
       $inc: {
@@ -81,11 +116,6 @@ const unfollowUser = async (req, res) => {
   res.status(200).json(account);
 };
 
-const loginAccount = async (req, res) => {
-  const account = await Account.find({ username: username });
-  res.status(200).json(account);
-};
-
 const sendImage = async (req, res) => {
   console.log("here");
   res.download("./images/testImg2.png");
@@ -97,4 +127,5 @@ module.exports = {
   unfollowUser,
   loginAccount,
   sendImage,
+  updateUser,
 };

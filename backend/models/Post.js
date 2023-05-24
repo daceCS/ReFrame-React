@@ -26,6 +26,9 @@ const PostSchema = new mongoose.Schema({
   VotedBy: {
     type: String,
   },
+  Comments: {
+    type: [String],
+  },
 });
 
 const PostModel = mongoose.model("accounts", PostSchema);

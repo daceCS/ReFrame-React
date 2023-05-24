@@ -5,6 +5,7 @@ const {
   unfollowUser,
   loginAccount,
   sendImage,
+  updateUser,
 } = require("../controllers/AccountController");
 const router = express.Router();
 
@@ -18,6 +19,8 @@ router.put("/follow-user", followUser);
 router.put("/unfollow-user", unfollowUser);
 
 router.get("/get-user-post", sendImage);
+
+router.put("/update-bio", updateUser);
 
 // UPDATE Account Data
 
