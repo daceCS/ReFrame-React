@@ -1,5 +1,3 @@
-import SearchIcon from '../images/search.png'
-
 function SearchBar() {
   return (
     <>
@@ -13,7 +11,7 @@ function SearchBar() {
           oninput="searchBar()"
         />
         <button type="submit" id="searchbutton">
-          <img src={SearchIcon} />
+          <img src="../images/search.png" />
         </button>
       </form>
       <div className="dropdown">
