@@ -1,14 +1,10 @@
 const express = require("express");
-//const router = express.Router();
-//const {
-//createPost,
-//getAllPost,
-//deletePost,
-//} = require("../controllers/PostController");
+const router = express.Router();
+const { createPost, upload } = require("../controllers/PostController");
 
 // CREATE Post
 
-//router.post("create", createPost);
+router.post("/create", upload.single("avatar"), createPost);
 
 //router.get("get-all-post", getAllPost);
 
@@ -18,4 +14,4 @@ const express = require("express");
 
 // GET Post Data
 
-//module.exports = router;
+module.exports = router;

@@ -10,6 +10,7 @@ const PostSchema = new mongoose.Schema({
   },
   Votes: {
     type: Number,
+    default: 0,
   },
   PostType: {
     type: Number,
@@ -31,5 +32,5 @@ const PostSchema = new mongoose.Schema({
   },
 });
 
-const PostModel = mongoose.model("accounts", PostSchema);
+const PostModel = mongoose.model("posts", PostSchema);
 module.exports = PostModel;
