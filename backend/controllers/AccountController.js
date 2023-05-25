@@ -117,8 +117,8 @@ const unfollowUser = async (req, res) => {
 };
 
 const sendImage = async (req, res) => {
-  console.log("here");
-  res.download("./images/testImg2.png");
+  console.log(req.headers.postid);
+  res.sendFile(__dirname + "\\images\\" + req.headers.postid); // this code works
 };
 
 module.exports = {

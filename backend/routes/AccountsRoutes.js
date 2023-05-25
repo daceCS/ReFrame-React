@@ -18,7 +18,7 @@ router.put("/follow-user", followUser);
 
 router.put("/unfollow-user", unfollowUser);
 
-router.get("/get-user-post", sendImage);
+router.get("/image", sendImage);
 
 router.put("/update-bio", updateUser);
 
