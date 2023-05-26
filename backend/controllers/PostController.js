@@ -26,11 +26,12 @@ const createPost = async (req, res) => {
       res.send("200");
     }
   );
+  const POST_TYPE_IMAGE = 0;
   console.log(req.headers.caption);
   const post = await Post.create({
     PostData: newFileName,
     Caption: req.headers.caption,
-    PostType: 0,
+    PostType: POST_TYPE_IMAGE,
     PostedBy: "david",
     PostId: req.file.filename,
   });
