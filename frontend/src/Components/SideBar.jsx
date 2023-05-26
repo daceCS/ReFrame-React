@@ -4,12 +4,16 @@ function SideBar() {
     <aside>
       <div className="menu-div">
         <nav >
-          <a href="/feed" id="home-link" className="menu">
+        <a href="/users/poopyThai" id="profile-link" className="profile">
+            Profile
+          </a>
+          <a href="/" id="home-link" className="menu">
             Home
           </a>
-          <a href="/createPost" id="new-post-link" className="createButton">
+          <a href="/upload" id="new-post-link" className="createButton">
             Create Post
           </a>
+         
         </nav>
       </div>
     </aside>
