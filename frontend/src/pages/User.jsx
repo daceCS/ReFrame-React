@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import SearchBar from "../Components/Searchbar";
 import ContentOptions from "../Components/ContentOptions";
 import UserInfo from "../Components/UserInfo";
+import SideBar from "../Components/SideBar";
 
 function User() {
   const { user } = useParams();
@@ -25,12 +26,7 @@ function User() {
           </nav>
       </header>
       <aside>
-          <div class="menu-div">
-              <nav class="menu">
-                  <a href="/feed" id="home-link">Home</a>
-                  <a href="/createPost" id="new-post-link">Create Post</a>
-              </nav>
-          </div>
+          <SideBar/>
       </aside>
 
       <ContentOptions/>
