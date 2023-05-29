@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-const createPost = async (req, res) => {
+const createImagePost = async (req, res) => {
   let fileType = req.file.mimetype.split("/")[1];
   let newFileName = req.file.filename + "." + fileType;
   fs.rename(
@@ -53,12 +53,11 @@ const createNewPostId = () => {
   return result;
 };
 
-const sendPost = async (req, res) => {
-  console.log(req.headers.postid);
-  const POST_ID = req.headers.postid;
-  post = await Post.findOne({ PostId: POST_ID });
+const sendPostImage = async (req, res) => {
+  console.log(req.headers.postdata);
+  const DATA = req.headers.postdata;
 
-  res.sendFile(__dirname + "\\user-uploads\\post-images\\" + post.PostData); // this code works
+  res.sendFile(__dirname + "\\user-uploads\\post-images\\" + DATA); // this code works
 };
 
 const getPostData = async (req, res) => {
@@ -70,17 +69,26 @@ const getPostData = async (req, res) => {
 };
 
 const getAllPost = async (req, res) => {
-  console.log("yo");
   allPost = await Post.find();
 
   console.log(allPost);
   res.json({ allPost: allPost });
 };
 
+const getAllUserPost = async (req, res) => {
+  const USER = req.params.username;
+  console.log(USER);
+  const ALL_USER_POST = await Post.find({ PostedBy: USER });
+  //console.log(ALL_USER_POST);
+
+  res.json(ALL_USER_POST);
+};
+
 module.exports = {
-  createPost,
+  createImagePost,
   upload,
-  sendPost,
+  sendPostImage,
   getPostData,
   getAllPost,
+  getAllUserPost,
 };

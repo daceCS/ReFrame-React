@@ -4,15 +4,28 @@ import Post from "../Components/Post";
 
 function ExamplePost() {
   const [src, setSrc] = useState("");
-  const [message, setMessage] = useState("");
+  //const [message, setMessage] = useState("");
+  const [currentUser, setCurrentUser] = useState("david");
+  const [currentPost, setCurrentPost] = useState("");
+  const [caption, setCaption] = useState("");
+  const [author, setAuthor] = useState("");
 
   const fetchImage = () => {
-    const url = `http://localhost:4000/api/accounts/image`;
+    fetch("http://localhost:4000/api/posts/get-all-user-posts/" + currentUser)
+      .then((res) => res.json())
+      .then((data) => {
+        let userPost = data[0];
+        setCurrentPost(userPost);
+        setCaption(userPost.Caption);
+        setAuthor(userPost.PostedBy);
+        console.log(currentPost);
+      });
+
     axios
-      .get(url, {
+      .get("http://localhost:4000/api/posts/get-post-image", {
         responseType: "blob",
         headers: {
-          PostId: "testImg2.png", // pass in post id
+          PostData: currentPost.PostData, // pass in post id
         },
       })
       .then((res) => {
@@ -24,9 +37,9 @@ function ExamplePost() {
 
   useEffect(() => {
     fetchImage();
-  }, []);
+  }, [2]);
 
-  return <Post caption="test" src={src} />;
+  return <Post src={src} caption={caption} author={author} />;
 }
 
 export default ExamplePost;
