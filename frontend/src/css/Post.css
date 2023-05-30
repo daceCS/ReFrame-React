@@ -1,26 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
 *{
 
 }
 .Post {
+
     display: grid;
-    place-items: center;
+    place-items:center;
     background: linear-gradient(45deg, #EB9DAD, #79AEF2);
     width: 500px;
-    height: 373px;
-    margin: 90px auto;
-    overflow-y: hidden;
+    max-height: 1900px;
+    margin: 10px auto;
+    overflow-x: hidden;
     font-family: Garamond;
     font-size: large;
-    color: white;
+    border: 2px solid #071E22;
+    overflow-y: hidden;
+   
+    
 }
   .post-interaction {
-    position: sticky;
+    position: relative;
     background-color: #012340;
     width: 100%;
     height: 40px;
-    bottom: 0%;
-
-   
+    bottom:-22px;
   }
   .caption {
     position: sticky;
@@ -31,6 +34,7 @@
     top: 0%;
     text-align: center;
     z-index: 100;
+    color: white;
     
   }
   .image {
@@ -42,81 +46,77 @@
     position: absolute;
     top: 30%;
     right: 83%;
+    color: white;
   }
-  .post-data {
+  .user-id {
     position:relative;
-    top: -120%;
-    left: 25%;
+    color: white;
+    top: -40%;
+    left: 30%;
   }
  
 
 
-
-
-
-
-
-
-
-
-.button-like {
-    position: relative;
-    margin-top: -5px;
-    border: 1px solid #000000;
-    background-color: transparent;
-    text-decoration: none;
-    padding: 1rem;
-    position: relative;
-    vertical-align: middle;
-    display: inline-block;
-    border-radius: 2rem;
-    color: #000000;
-    transition: all ease 0.4s;
-    scale: 0.6;
+ 
+  .heart-btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
-  .button-like span {
-    margin-left: 0.3rem;
+  .content{
+    padding: 13px 16px;
+    display: flex;
+    border: 2px solid #eae2e1;
+    border-radius: 5px;
+    cursor: pointer;
   }
-  .button-like .fa,
-  .button-like span {
-    transition: all ease 0.4s;
+  .content.heart-active{
+    border-color: #f9b9c4;
+    background: #fbd0d8;
   }
-  .button-like:focus {
-    background-color: transparent;
+  .heart{
+    position: absolute;
+    background: url("img.png") no-repeat;
+    background-position: left;
+    background-size: 2900%;
+    height: 90px;
+    width: 90px;
+    top: 50%;
+    left: 21%;
+    transform: translate(-50%,-50%);
   }
-  .button-like:focus .fa,
-  .button-like:focus span {
-    color: #8a8a8a;
+  .text{
+    font-size: 21px;
+    margin-left: 30px;
+    color: grey;
+    font-family: 'Montserrat',sans-serif;
   }
-  .button-like:hover {
-    border-color: #cc4b37;
-    background-color: transparent;
+  .numb:before{
+    content: '12';
+    font-size: 21px;
+    margin-left: 7px;
+    font-weight: 600;
+    color: #9C9496;
+    font-family: sans-serif;
   }
-  .button-like:hover .fa,
-  .button-like:hover span {
-    color: #cc4b37;
+  .numb.heart-active:before{
+    content: '13';
+    color: #000;
   }
-  .liked {
-    transition: all ease 0.4s;
-    background-color: #cc4b37;
-    border-color: #cc4b37;
+  .text.heart-active{
+    color: #000;
   }
-  .liked .fa,
-  .liked span {
-    color: #fefefe;
+  .heart.heart-active{
+    animation: animate .8s steps(28) 1;
+    background-position: right;
   }
-  .liked:focus {
-    background-color: #cc4b37;
+  @keyframes animate {
+    0%{
+      background-position: left;
+    }
+    100%{
+      background-position: right;
+    }
   }
-  .liked:focus .fa,
-  .liked:focus span {
-    color: #fefefe;
-  }
-  .liked:hover {
-    background-color: #cc4b37;
-    border-color: #cc4b37;
-  }
-  .liked:hover .fa,
-  .liked:hover span {
-    color: #fefefe;
-  }
+  
