@@ -287,6 +287,7 @@ header {
   position: absolute;
   font-family: "Summer Beach", "sans-serif";
   margin-left: 5px;
+  top: 0px;
   font-weight: bold;
 }
 #feed {
@@ -380,7 +381,7 @@ a:visited {
   border: 2px solid black;
   color: white;
   padding: 0 10px;
-  left: -600px;
+  left: 0px;
   top: 50px;
 }
 
@@ -794,13 +795,16 @@ a:visited {
   padding: 20px auto;
 }
 #content-options {
-  background-color: rgba(42, 108, 146, 0.671);
+  background-image: linear-gradient(
+    135deg,
+    #012340 40%,
+    rgba(42, 108, 146, 0.671)
+  );
   width: 498px;
   height: 58px;
- 
-  
+
   position: absolute;
-  top: 10%;
+  top: 13.5%;
   left: 37%;
   display: grid;
   place-content: center;
