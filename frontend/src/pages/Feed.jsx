@@ -8,6 +8,21 @@ import { useEffect, useState } from "react";
 
 function Home() {
   const [posts, setPosts] = useState(null);
+  const [sortVal, setSortVal] = useState(0);
+
+  const sortFollowing = () => {
+    setSortVal(1);
+  };
+  const sortTopVoted = () => {
+    setSortVal(1);
+  };
+  const SortNew = () => {
+    setSortVal(1);
+  };
+  const sortOld = () => {
+    setSortVal(1);
+  };
+
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(
@@ -25,10 +40,16 @@ function Home() {
 
   return (
     <>
+      {console.log(sortVal)}
       <NavBar />
       <SideBar />
       <CreatePost />
-      <ContentOptions />
+      <ContentOptions
+        sortFollowing={sortFollowing}
+        sortTopVoted={sortTopVoted}
+        SortNew={SortNew}
+        sortOld={sortOld}
+      />
       <div id="feed">
         <div>
           {console.log(posts)}

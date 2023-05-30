@@ -6,12 +6,12 @@ function UserInfo({
 }) {
   return (
     <>
-      <div class="user-info">
-        <div class="banner-class">
-          <img class="banner" id="banner" src="${userBannerImg}" />
+      <div className="user-info">
+        <div className="banner-class">
+          <img className="banner" id="banner" src="${userBannerImg}" />
         </div>
-        <div class="profileIcon-class">
-          <img class="profileIcon" id="pfp" src="${userProfileIcon}" />
+        <div className="profileIcon-class">
+          <img className="profileIcon" id="pfp" src="${userProfileIcon}" />
         </div>
         <p id="username">{userPageUsername}</p>
         <p id="follow-count">Followers: {userPageFollowCount}</p>

@@ -1,4 +1,4 @@
-import SearchIcon from '../images/search.png'
+import SearchIcon from "../images/search.png";
 
 function SearchBar() {
   return (
@@ -9,8 +9,8 @@ function SearchBar() {
           id="search"
           placeholder="Search Users"
           name="SearchStuff"
-          autocomplete="off"
-          oninput="searchBar()"
+          autoComplete="off"
+          onInput={console.log("search")}
         />
         <button type="submit" id="searchbutton">
           <img src={SearchIcon} />

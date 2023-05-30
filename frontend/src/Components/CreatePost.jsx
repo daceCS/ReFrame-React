@@ -21,7 +21,7 @@ function CreatePost() {
           type="button"
           id="create-post-interact-field"
           value="Create Post (Click Me!)"
-          onclick="reDirectToCreatePost()"
+          onClick={console.log("yo")}
         />
       </div>
     </>
