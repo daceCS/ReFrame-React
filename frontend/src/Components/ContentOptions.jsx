@@ -1,6 +1,6 @@
 function ContentOptions({ sortFollowing, sortTopVoted, SortNew, sortOld }) {
   return (
-    <div id="content-options">
+    <div id="content-options" className="button button--pen">
       <p id="sort-title">Sort By:</p>
       <input
         type="button"
@@ -21,6 +21,21 @@ function ContentOptions({ sortFollowing, sortTopVoted, SortNew, sortOld }) {
         value="Sort Oldest"
         onClick={sortOld}
       />
+      <div className="button__wrapper"></div>
+        <div className="characterBox">
+          <div className="character wakeup">
+            <div className="character__face"></div>
+            <div className="charactor__face2"></div>
+          </div>
+          <div className="character wakeup">
+            <div className="character__face"></div>
+            <div className="charactor__face2"></div>
+          </div>
+          <div className="character">
+            <div className="character__face"></div>
+            <div className="charactor__face2"></div>
+          </div>
+        </div>
     </div>
   );
 }
