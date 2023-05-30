@@ -3,8 +3,8 @@ function SideBar() {
   return (
     <aside>
       <div className="menu-div">
-        <nav >
-        <a href="/users/poopyThai" id="profile-link" className="profile">
+        <nav>
+          <a href="/users/mike" id="profile-link" className="profile">
             Profile
           </a>
           <a href="/" id="home-link" className="menu">
@@ -13,7 +13,6 @@ function SideBar() {
           <a href="/upload" id="new-post-link" className="createButton">
             Create Post
           </a>
-         
         </nav>
       </div>
     </aside>

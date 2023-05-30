@@ -40,6 +40,20 @@ const createImagePost = async (req, res) => {
   res.status(200);
 };
 
+const createTextPost = async (req, res) => {
+  const POST_TYPE_TEXT = 1;
+  const postID = createNewPostId();
+  const post = await Post.create({
+    PostData: req.body.postData,
+    Caption: req.body.caption,
+    PostType: POST_TYPE_TEXT,
+    PostedBy: "mike",
+    PostId: postID,
+  });
+
+  res.json(post);
+};
+
 const createNewPostId = () => {
   let result = "";
   const characters =
@@ -59,19 +73,11 @@ const sendPostImage = async (req, res) => {
   res.sendFile(__dirname + "\\user-uploads\\post-images\\" + DATA); // this code works
 };
 
-const getPostData = async (req, res) => {
-  const POST_ID = req.headers.postid;
-  post = await Post.findOne({ PostId: POST_ID });
-  //console.log(post);
-
-  res.json(post);
-};
-
 const getAllPost = async (req, res) => {
   allPost = await Post.find();
 
   console.log(allPost);
-  res.json({ allPost: allPost });
+  res.json(allPost);
 };
 
 const getAllUserPost = async (req, res) => {
@@ -87,7 +93,7 @@ module.exports = {
   createImagePost,
   upload,
   sendPostImage,
-  getPostData,
   getAllPost,
   getAllUserPost,
+  createTextPost,
 };

@@ -1,21 +1,25 @@
+function UserInfo({
+  userPageUsername,
+  userPageFollowCount,
+  userPagePostCount,
+  userPageBio,
+}) {
+  return (
+    <>
+      <div class="user-info">
+        <div class="banner-class">
+          <img class="banner" id="banner" src="${userBannerImg}" />
+        </div>
+        <div class="profileIcon-class">
+          <img class="profileIcon" id="pfp" src="${userProfileIcon}" />
+        </div>
+        <p id="username">{userPageUsername}</p>
+        <p id="follow-count">Followers: {userPageFollowCount}</p>
+        <p id="post-count">Posts: {userPagePostCount}</p>
 
-
-function UserInfo() {
-    return (
-      <>
-         <div id="user-options">
-          <p id="sort-user-options"></p>
-          <input type="button" id="Follow-User" value="Follow" onclick="change()"/>
+        <p id="bio">{userPageBio}</p>
       </div>
-      <form id="fileupload">
-          <input id="banner-upload" type="file" name="image" onchange="img1()" hidden accept="image/png, image/jpeg" />
-      </form>
-      <form id="fileupload2">
-          <input id="pfp-uploads" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
-      </form>
-      <div class="feed" id="feed"></div>
-      </>
-    );
-  }
-  export default UserInfo;
-  
+    </>
+  );
+}
+export default UserInfo;

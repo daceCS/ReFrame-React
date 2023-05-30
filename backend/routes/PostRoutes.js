@@ -4,18 +4,18 @@ const {
   createImagePost,
   upload,
   sendPostImage,
-  getPostData,
   getAllPost,
   getAllUserPost,
+  createTextPost,
 } = require("../controllers/PostController");
 
 // CREATE Post
 
 router.post("/create-image-post", upload.single("avatar"), createImagePost);
 
-router.get("/send-post-image/:image", sendPostImage);
+router.post("/create-text-post", createTextPost);
 
-router.get("/post-data", getPostData);
+router.get("/send-post-image/:image", sendPostImage);
 
 router.get("/get-all-post", getAllPost);
 

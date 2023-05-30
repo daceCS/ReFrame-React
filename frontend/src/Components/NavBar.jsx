@@ -8,7 +8,7 @@ function NavBar() {
           type="button"
           value="Sign Out"
           id="sign-out"
-          onclick="signOut()"
+          onClick="signOut()"
         />
 
         <SearchBar />

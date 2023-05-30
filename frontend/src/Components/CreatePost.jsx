@@ -1,24 +1,21 @@
-
-
 function CreatePost() {
-    return (
-      <>
-        <div id="create-post-interaction" className = "button button--pen">
-        <div class="button__wrapper">
-        </div>
+  return (
+    <>
+      <div id="create-post-interaction" className="button button--pen">
+        <div class="button__wrapper"></div>
         <div class="characterBox">
-            <div class="character wakeup">
-                <div class="character__face"></div>
-                <div class="charactor__face2"></div>
-            </div>
-            <div class="character wakeup">
-                <div class="character__face"></div>
-                <div class="charactor__face2"></div>
-            </div>
-            <div class="character">
-                <div class="character__face"></div>
-                <div class="charactor__face2"></div>
-            </div>
+          <div class="character wakeup">
+            <div class="character__face"></div>
+            <div class="charactor__face2"></div>
+          </div>
+          <div class="character wakeup">
+            <div class="character__face"></div>
+            <div class="charactor__face2"></div>
+          </div>
+          <div class="character">
+            <div class="character__face"></div>
+            <div class="charactor__face2"></div>
+          </div>
         </div>
         <input
           type="button"
@@ -27,8 +24,7 @@ function CreatePost() {
           onclick="reDirectToCreatePost()"
         />
       </div>
-      </>
-    );
-  }
-  export default CreatePost;
-  
+    </>
+  );
+}
+export default CreatePost;
