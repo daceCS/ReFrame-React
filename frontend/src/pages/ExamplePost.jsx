@@ -32,6 +32,7 @@ function ExamplePost() {
             author={post.PostedBy}
             caption={post.Caption}
             src={post.PostData}
+            postType={post.PostType}
           />
         ))}
     </div>
