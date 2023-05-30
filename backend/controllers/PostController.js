@@ -74,6 +74,19 @@ const sendPostImage = async (req, res) => {
 };
 
 const getAllPost = async (req, res) => {
+  const SORT_TYPE_NEW = 0;
+  const SORT_TYPE_OLD = 1;
+  const SORT_TYPE_FOLLOWING = 2;
+  const SORT_TYPE_VOTES = 3;
+
+  const sortType = req.params.sortType;
+
+  if (sortType == SORT_TYPE_NEW) {
+  } else if (sortType == SORT_TYPE_OLD) {
+  } else if (sortType == SORT_TYPE_FOLLOWING) {
+  } else {
+  }
+
   allPost = await Post.find();
 
   console.log(allPost);
