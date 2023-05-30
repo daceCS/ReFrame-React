@@ -9,7 +9,7 @@ function Post({ src, caption, author, postType }) {
   useEffect(() => {
     if (postType == POST_TYPE_IMAGE) {
       axios
-        .get("http://localhost:4000/api/posts/send-post-image/" + src, {
+        .get("http://173.255.210.209:4000/api/posts/send-post-image/" + src, {
           responseType: "blob",
         })
         .then((res) => {
@@ -27,6 +27,7 @@ function Post({ src, caption, author, postType }) {
   if (postType == POST_TYPE_IMAGE) {
     return (
       // picture posts
+      
       <div className="Post">
         <div className="caption">{caption}</div>
         <img
@@ -36,19 +37,22 @@ function Post({ src, caption, author, postType }) {
           width="90%"
           className="image"
         />
-        <div className="post-interaction">
-          <button className="button-like" value="Like" id="like-button">
-            <i className="fa fa-heart"></i>
-            <span></span>
-          </button>
+    <div className="post-interaction">
+          <div class="heart-btn">
+          <div class="content">
+          <span class="heart"></span>
+          <span class="text">Like</span>
+          <span class="numb"></span>
+          </div>
+    </div>
           <div>
             <p className="post-votes">Likes: </p>
             <Link />
           </div>
         </div>
-        <div className="post-data">
+       
           <p className="user-id">Post By: {author}</p>
-        </div>
+        
       </div>
     );
   } else {
@@ -71,6 +75,7 @@ function Post({ src, caption, author, postType }) {
           <p className="user-id">Post By: {author}</p>
         </div>
       </div>
+      
     );
   }
 }
