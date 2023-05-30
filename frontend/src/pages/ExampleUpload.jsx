@@ -1,4 +1,9 @@
+import NavBar from "../Components/NavBar";
+import SideBar from "../Components/SideBar";
 import { useState } from "react";
+import "../css/feed.css";
+
+
 
 function ExampleUpload() {
   const [image, setImage] = useState("");
@@ -32,11 +37,16 @@ function ExampleUpload() {
 
   return (
     <>
-      <form action="upload-file" encType="multipart/form-data">
+    <NavBar />
+      <SideBar />
+      <form action="upload-file" encType="multipart/form-data" className = "upload-file">
         <input type="file" onChange={fileOnChange} />
         <input type="text" onChange={changeCaption} />
+        <textarea id = "text-input"/>
         <button onClick={upload}>Upload Post</button>
       </form>
+      
+      
     </>
   );
 }
