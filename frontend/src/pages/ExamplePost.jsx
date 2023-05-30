@@ -1,45 +1,41 @@
-import { useEffect, useInsertionEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import Post from "../Components/Post";
 
 function ExamplePost() {
-  const [src, setSrc] = useState("");
-  //const [message, setMessage] = useState("");
-  const [currentUser, setCurrentUser] = useState("david");
-  const [currentPost, setCurrentPost] = useState("");
-  const [caption, setCaption] = useState("");
-  const [author, setAuthor] = useState("");
-
-  const fetchImage = () => {
-    fetch("http://localhost:4000/api/posts/get-all-user-posts/" + currentUser)
-      .then((res) => res.json())
-      .then((data) => {
-        let userPost = data[0];
-        setCurrentPost(userPost);
-        setCaption(userPost.Caption);
-        setAuthor(userPost.PostedBy);
-        console.log(currentPost);
-      });
-
-    axios
-      .get("http://localhost:4000/api/posts/get-post-image", {
-        responseType: "blob",
-        headers: {
-          PostData: currentPost.PostData, // pass in post id
-        },
-      })
-      .then((res) => {
-        var imageUrl = URL.createObjectURL(res.data);
-        console.log(imageUrl);
-        setSrc(imageUrl);
-      });
-  };
+  const [currentPost, setCurrentPost] = useState(null);
+  const [imgURL, setImageURL] = useState(null);
+  const [posts, setPosts] = useState(null);
+  //let posts = [];
 
   useEffect(() => {
-    fetchImage();
-  }, [2]);
+    const fetchPosts = async () => {
+      const response = await fetch(
+        "http://localhost:4000/api/posts/get-all-user-posts/" + "mike"
+      );
+      const json = await response.json();
 
-  return <Post src={src} caption={caption} author={author} />;
+      if (response.ok) {
+        setPosts(json);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  return (
+    <div>
+      {console.log(posts)}
+      {posts &&
+        posts.map((post) => (
+          <Post
+            key={post.PostId}
+            author={post.PostedBy}
+            caption={post.Caption}
+            src={post.PostData}
+          />
+        ))}
+    </div>
+  );
 }
 
 export default ExamplePost;

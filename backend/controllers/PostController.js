@@ -34,7 +34,7 @@ const createImagePost = async (req, res) => {
     PostData: req.file.filename,
     Caption: req.headers.caption,
     PostType: POST_TYPE_IMAGE,
-    PostedBy: req.headers.username,
+    PostedBy: "mike",
     PostId: postID,
   });
   res.status(200);
@@ -54,8 +54,7 @@ const createNewPostId = () => {
 };
 
 const sendPostImage = async (req, res) => {
-  console.log(req.headers.postdata);
-  const DATA = req.headers.postdata;
+  const DATA = req.params.image;
 
   res.sendFile(__dirname + "\\user-uploads\\post-images\\" + DATA); // this code works
 };
@@ -63,7 +62,7 @@ const sendPostImage = async (req, res) => {
 const getPostData = async (req, res) => {
   const POST_ID = req.headers.postid;
   post = await Post.findOne({ PostId: POST_ID });
-  console.log(post);
+  //console.log(post);
 
   res.json(post);
 };
@@ -77,7 +76,7 @@ const getAllPost = async (req, res) => {
 
 const getAllUserPost = async (req, res) => {
   const USER = req.params.username;
-  console.log(USER);
+  //console.log(USER);
   const ALL_USER_POST = await Post.find({ PostedBy: USER });
   //console.log(ALL_USER_POST);
 

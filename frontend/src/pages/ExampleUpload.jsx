@@ -19,7 +19,7 @@ function ExampleUpload() {
     formData.append("avatar", image);
     console.log(caption);
 
-    fetch("http://localhost:4000/api/posts/create", {
+    fetch("http://localhost:4000/api/posts//create-image-post", {
       method: "post",
       headers: { caption: caption },
       body: formData,

@@ -13,7 +13,7 @@ const {
 
 router.post("/create-image-post", upload.single("avatar"), createImagePost);
 
-router.get("/get-post-image", sendPostImage);
+router.get("/send-post-image/:image", sendPostImage);
 
 router.get("/post-data", getPostData);
 
