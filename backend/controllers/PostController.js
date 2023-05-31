@@ -102,6 +102,33 @@ const getAllUserPost = async (req, res) => {
   res.json(ALL_USER_POST);
 };
 
+const likePost = async (req, res) => {
+  const POST = req.body.postId;
+  let update = await Post.findOneAndUpdate(
+    { PostId: POST },
+    {
+      $inc: {
+        Votes: 1,
+      },
+    }
+  );
+
+  res.json(Post.find({ PostId: POST }));
+};
+const unlikePost = async (req, res) => {
+  const POST = req.body.postId;
+  let update = await Post.findOneAndUpdate(
+    { PostId: POST },
+    {
+      $inc: {
+        Votes: -1,
+      },
+    }
+  );
+
+  res.json(Post.find({ PostId: POST }));
+};
+
 module.exports = {
   createImagePost,
   upload,
@@ -109,4 +136,6 @@ module.exports = {
   getAllPost,
   getAllUserPost,
   createTextPost,
+  unlikePost,
+  likePost,
 };

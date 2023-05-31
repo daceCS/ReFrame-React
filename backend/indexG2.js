@@ -8,9 +8,7 @@ const postRoutes = require("./routes/PostRoutes");
 const app = express();
 const cors = require("cors");
 app.use(express.json());
-app.use(
-  cors()
-);
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log(req.path, req.method);
@@ -23,7 +21,7 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log("Database live and running on port 4000");
+      console.log("Database live and running on port 4002");
     });
   })
   .catch((err) => {

@@ -7,6 +7,8 @@ const {
   getAllPost,
   getAllUserPost,
   createTextPost,
+  unlikePost,
+  likePost,
 } = require("../controllers/PostController");
 
 // CREATE Post
@@ -14,6 +16,10 @@ const {
 router.post("/create-image-post", upload.single("avatar"), createImagePost);
 
 router.post("/create-text-post", createTextPost);
+
+router.put("like-post", likePost);
+
+router.put("unlike-post", unlikePost);
 
 router.get("/send-post-image/:image", sendPostImage);
 
