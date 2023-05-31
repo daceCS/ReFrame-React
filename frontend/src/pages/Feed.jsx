@@ -43,13 +43,19 @@ function Home() {
       {console.log(sortVal)}
       <NavBar />
       <SideBar />
-      <CreatePost />
       <ContentOptions
         sortFollowing={sortFollowing}
         sortTopVoted={sortTopVoted}
         SortNew={SortNew}
         sortOld={sortOld}
       />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <div id="feed">
         <div>
           {console.log(posts)}
