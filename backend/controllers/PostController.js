@@ -112,8 +112,8 @@ const likePost = async (req, res) => {
       },
     }
   );
-
-  res.json(Post.find({ PostId: POST }));
+  let returnPost = await Post.find({ PostId: POST });
+  res.json(returnPost);
 };
 const unlikePost = async (req, res) => {
   const POST = req.body.postId;
@@ -126,7 +126,8 @@ const unlikePost = async (req, res) => {
     }
   );
 
-  res.json(Post.find({ PostId: POST }));
+  let returnPost = await Post.find({ PostId: POST });
+  res.json(returnPost);
 };
 
 module.exports = {
