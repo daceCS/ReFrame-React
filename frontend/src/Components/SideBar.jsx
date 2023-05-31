@@ -4,9 +4,6 @@ function SideBar() {
     <aside>
       <div className="menu-div">
         <nav>
-          <a href="/users/mike" id="profile-link" className="profile">
-            Profile
-          </a>
           <a href="/" id="home-link" className="menu">
             Home
           </a>
