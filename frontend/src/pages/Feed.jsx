@@ -26,7 +26,7 @@ function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(
-        "http://localhost:4000/api/posts/get-all-post"
+        "http://173.255.210.209:4000/api/posts/get-all-post"
       );
       const json = await response.json();
 
