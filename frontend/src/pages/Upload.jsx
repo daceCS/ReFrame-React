@@ -5,7 +5,7 @@ import "../css/feed.css";
 
 
 
-function ExampleUpload() {
+function Upload() {
   const [image, setImage] = useState("");
   const [caption, setCaption] = useState("");
 
@@ -39,16 +39,17 @@ function ExampleUpload() {
     <>
     <NavBar />
       <SideBar />
-      <form action="upload-file" encType="multipart/form-data" className = "upload-file">
-        <input type="file" onChange={fileOnChange} />
-        <input type="text" onChange={changeCaption} />
-        <textarea id = "text-input"/>
-        <button onClick={upload}>Upload Post</button>
-      </form>
       
+      <form action="upload-file" encType="multipart/form-data" className = "upload-file">
+        <input type="file" className = "file-upload" onChange={fileOnChange} />
+        <input type="text" onChange={changeCaption} id = "caption-upload" />
+        <textarea name="text input" id="text-input" cols="60" rows="40"> </textarea>
+        <button className = "upload-button" onClick={upload}>Upload Post</button>
+      </form>
+
       
     </>
   );
 }
 
-export default ExampleUpload;
+export default Upload;
