@@ -9,22 +9,21 @@ import { useEffect, useState } from "react";
 function Home() {
   const [posts, setPosts] = useState(null);
   const [sortVal, setSortVal] = useState(0);
-  const [isClick, setClick] = useState(false);
 
-  const sortTopVoted = () => {
-    setSortVal(1);
-  };
   const SortNew = () => {
-    setSortVal(1);
+    setSortVal(0);
   };
   const sortOld = () => {
     setSortVal(1);
+  };
+  const sortTopVoted = () => {
+    setSortVal(2);
   };
 
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(
-        "http://173.255.210.209:4002/api/posts/get-all-post"
+        "http://173.255.210.209:4002/api/posts/get-all-post/" + sortVal
       );
       const json = await response.json();
 
@@ -34,7 +33,7 @@ function Home() {
     };
 
     fetchPosts();
-  }, []);
+  }, [sortVal]);
 
   return (
     <>

@@ -23,7 +23,7 @@ router.put("/unlike-post/:id", unlikePost);
 
 router.get("/send-post-image/:image", sendPostImage);
 
-router.get("/get-all-post", getAllPost);
+router.get("/get-all-post/:sort", getAllPost);
 
 router.get("/get-all-user-posts/:username", getAllUserPost);
 

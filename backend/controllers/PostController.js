@@ -70,27 +70,26 @@ const createNewPostId = () => {
 const sendPostImage = async (req, res) => {
   const DATA = req.params.image;
 
-  res.sendFile(__dirname + "\\user-uploads\\post-images\\" + DATA); // this code works
+  res.sendFile(__dirname + "/user-uploads/post-images/" + DATA); // this code works
 };
 
 const getAllPost = async (req, res) => {
   const SORT_TYPE_NEW = 0;
   const SORT_TYPE_OLD = 1;
-  const SORT_TYPE_FOLLOWING = 2;
-  const SORT_TYPE_VOTES = 3;
+  const SORT_TYPE_VOTES = 2;
 
   const sortType = req.params.sortType;
-
-  if (sortType == SORT_TYPE_NEW) {
-  } else if (sortType == SORT_TYPE_OLD) {
-  } else if (sortType == SORT_TYPE_FOLLOWING) {
-  } else {
-  }
-
   allPost = await Post.find();
 
+  if (sortType == SORT_TYPE_NEW) {
+    res.json(allPost.sort({ createdAt: -1 }));
+  } else if (sortType == SORT_TYPE_OLD) {
+    res.json(allPost.sort({ createdAt: 1 }));
+  } else if (sortType == SORT_TYPE_VOTES) {
+    res.json(allPost.sort({ Votes: 1 }));
+  }
+
   console.log(allPost);
-  res.json(allPost);
 };
 
 const getAllUserPost = async (req, res) => {
