@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
+import Heart from "react-animated-heart";
 import "../css/Post.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 function Post({ src, caption, author, postType }) {
   const [imageURL, setImageURL] = useState(null);
+  const [isClick, setClick] = useState(false);
   const POST_TYPE_IMAGE = 0;
   const POST_TYPE_TEXT = 1;
   useEffect(() => {
     if (postType == POST_TYPE_IMAGE) {
       axios
-        .get("http://173.255.210.209:4000/api/posts/send-post-image/" + src, {
+        .get("http://173.255.210.209:4002/api/posts/send-post-image/" + src, {
           responseType: "blob",
         })
         .then((res) => {
@@ -37,19 +39,13 @@ function Post({ src, caption, author, postType }) {
           width="90%"
           className="image"
         />
-    <div className="post-interaction">
-          <div class="heart-btn">
-          <div class="content">
-          <span class="heart"></span>
-          <span class="text">Like</span>
-          <span class="numb"></span>
-          </div>
-    </div>
+    
+         
           <div>
             <p className="post-votes">Likes: </p>
             <Link />
           </div>
-        </div>
+       
        
           <p className="user-id">Post By: {author}</p>
         
