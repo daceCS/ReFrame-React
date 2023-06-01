@@ -4,11 +4,13 @@ import SideBar from "../Components/SideBar";
 import ContentOptions from "../Components/ContentOptions";
 import CreatePost from "../Components/CreatePost";
 import Post from "../Components/Post";
+import Heart from "react-animated-heart";
 import { useEffect, useState } from "react";
 
 function Home() {
   const [posts, setPosts] = useState(null);
   const [sortVal, setSortVal] = useState(0);
+  const [isClick, setClick] = useState(false);
 
   const sortFollowing = () => {
     setSortVal(1);
@@ -26,7 +28,7 @@ function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(
-        "http://173.255.210.209:4000/api/posts/get-all-post"
+        "http://173.255.210.209:4002/api/posts/get-all-post"
       );
       const json = await response.json();
 
@@ -55,7 +57,11 @@ function Home() {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
+      <br></br> <div className="App">
+          <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
+          </div>
+
+
       <div id="feed">
         <div>
           {console.log(posts)}
