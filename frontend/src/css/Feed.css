@@ -89,13 +89,13 @@ header {
 .menu {
   background-color: #0f223b;
   border: 2px solid #071e22;
-  left: 1350px;
+  left: 78%;
   z-index: 4000;
 }
 .createButton{
   background-color: #0f223b;
   
-  left: 1500px;
+  left: 85%;
 }
 .user-id {
   position: absolute;
