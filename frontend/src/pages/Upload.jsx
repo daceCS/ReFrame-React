@@ -1,6 +1,7 @@
+
+import { useState } from "react";
 import NavBar from "../Components/NavBar";
 import SideBar from "../Components/SideBar";
-import { useState } from "react";
 import "../css/feed.css";
 
 
@@ -24,7 +25,7 @@ function Upload() {
     formData.append("avatar", image);
     console.log(caption);
 
-    fetch("http://localhost:4000/api/posts//create-image-post", {
+    fetch("http://localhost:4002/api/posts/create-image-post", {
       method: "post",
       headers: { caption: caption },
       body: formData,
@@ -43,7 +44,7 @@ function Upload() {
       <form action="upload-file" encType="multipart/form-data" className = "upload-file">
         <input type="file" className = "file-upload" onChange={fileOnChange} />
         <input type="text" onChange={changeCaption} id = "caption-upload" />
-        <textarea name="text input" id="text-input" cols="60" rows="40"> </textarea>
+        <textarea name="text input" className="text-input" cols="60" rows="40"> </textarea>
         <button className = "upload-button" onClick={upload}>Upload Post</button>
       </form>
 
