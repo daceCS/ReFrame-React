@@ -44,7 +44,7 @@ function Upload() {
         className="upload-file"
       >
         <input type="file" className="file-upload" onChange={fileOnChange} />
-        <input type="text" onChange={changeCaption} id="caption-upload" value = "Insert title here"/>
+        <input type="text" onChange={changeCaption} id="caption-upload"/>
         <button className="upload-button" onClick={upload}>
           Upload Post
         </button>
