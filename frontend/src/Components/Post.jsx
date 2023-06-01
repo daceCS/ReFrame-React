@@ -3,11 +3,57 @@ import Heart from "react-animated-heart";
 import "../css/Post.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-function Post({ src, caption, author, postType, id }) {
+
+function Post({ src, caption, author, postType, id, votes }) {
   const [imageURL, setImageURL] = useState(null);
   const [isClick, setClick] = useState(false);
+  const [num, setVotes] = useState(0);
+
   const POST_TYPE_IMAGE = 0;
   const POST_TYPE_TEXT = 1;
+
+  const updateUI = () => {
+    let likedPosts = JSON.parse(localStorage.getItem("likes"));
+    console.log(likedPosts);
+    for (let i = 0; i < likedPosts.length; i++) {
+      if (id == likedPosts[i]) {
+        setClick(true);
+      }
+    }
+  };
+  const likePost = async () => {
+    if (!isClick) {
+      console.log(id);
+      fetch("http://173.255.210.209:4002/api/posts/like-post/" + id, {
+        method: "PUT",
+      });
+
+      let arr = localStorage.getItem("likes");
+      let parsedarr = JSON.parse(arr);
+      parsedarr.push(id);
+      let newarr = JSON.stringify(parsedarr);
+      localStorage.setItem("likes", newarr);
+      setVotes((previousState) => previousState + 1);
+    } else if (isClick) {
+      console.log(id);
+      fetch("http://173.255.210.209:4002/api/posts/unlike-post/" + id, {
+        method: "PUT",
+      });
+      let arr = localStorage.getItem("likes");
+      let parsedarr = JSON.parse(arr);
+
+      for (let i = 0; i < parsedarr.length; i++) {
+        if (parsedarr[i] == id) {
+          parsedarr.splice(i, 1);
+        }
+      }
+      let newarr = JSON.stringify(parsedarr);
+      localStorage.setItem("likes", newarr);
+
+      setVotes((previousState) => previousState - 1);
+    }
+  };
+
   useEffect(() => {
     if (postType == POST_TYPE_IMAGE) {
       axios
@@ -24,16 +70,9 @@ function Post({ src, caption, author, postType, id }) {
           //console.log(posts);
         });
     }
+    setVotes(votes);
+    updateUI();
   }, []);
-
-  const likePost = async () => {
-    if (isClick) {
-      console.log(id);
-      fetch("http://173.255.210.209:4002/api/posts/like-post/" + id, {
-        method: "PUT",
-      });
-    }
-  };
 
   if (postType == POST_TYPE_IMAGE) {
     return (
@@ -57,7 +96,7 @@ function Post({ src, caption, author, postType, id }) {
               likePost();
             }}
           />
-          <p className="post-votes">Likes: </p>
+          <p className="post-votes">Likes: {num}</p>
         </div>
 
         <p className="user-id">Post By: {author}</p>
@@ -70,8 +109,8 @@ function Post({ src, caption, author, postType, id }) {
         <div className="caption">{caption}</div>
         <p>{src}</p>
         <div>
-          <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
-          <p className="post-votes">Likes: </p>
+          <Heart isclick={isClick} onClick={() => setClick(!isClick)} />
+          <p className="post-votes">Likes: {num}</p>
         </div>
         <div className="post-data">
           <p className="user-id">Post By: {author}</p>

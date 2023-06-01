@@ -65,6 +65,7 @@ function Home() {
                 src={post.PostData}
                 postType={post.PostType}
                 id={post.PostId}
+                votes={post.Votes}
               />
             ))}
         </div>

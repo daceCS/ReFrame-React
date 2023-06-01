@@ -1,10 +1,7 @@
-
 import { useState } from "react";
 import NavBar from "../Components/NavBar";
 import SideBar from "../Components/SideBar";
 import "../css/feed.css";
-
-
 
 function Upload() {
   const [image, setImage] = useState("");
@@ -25,7 +22,7 @@ function Upload() {
     formData.append("avatar", image);
     console.log(caption);
 
-    fetch("http://localhost:4002/api/posts/create-image-post", {
+    fetch("http://173.255.210.209:4002/api/posts/create-image-post", {
       method: "post",
       headers: { caption: caption },
       body: formData,
@@ -38,17 +35,23 @@ function Upload() {
 
   return (
     <>
-    <NavBar />
+      <NavBar />
       <SideBar />
-      
-      <form action="upload-file" encType="multipart/form-data" className = "upload-file">
-        <input type="file" className = "file-upload" onChange={fileOnChange} />
-        <input type="text" onChange={changeCaption} id = "caption-upload" />
-        <textarea name="text input" className="text-input" cols="60" rows="40"> </textarea>
-        <button className = "upload-button" onClick={upload}>Upload Post</button>
-      </form>
 
-      
+      <form
+        action="upload-file"
+        encType="multipart/form-data"
+        className="upload-file"
+      >
+        <input type="file" className="file-upload" onChange={fileOnChange} />
+        <input type="text" onChange={changeCaption} id="caption-upload" />
+        <textarea name="text input" className="text-input" cols="60" rows="40">
+          {" "}
+        </textarea>
+        <button className="upload-button" onClick={upload}>
+          Upload Post
+        </button>
+      </form>
     </>
   );
 }
