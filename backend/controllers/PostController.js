@@ -81,7 +81,7 @@ const getAllPost = async (req, res) => {
   const sortType = req.params.sort;
   allPost = await Post.find();
 
-  res.json(allPost.sort({ createdAt: -1 }));
+  res.json(allPost);
 
   console.log(allPost);
 };
