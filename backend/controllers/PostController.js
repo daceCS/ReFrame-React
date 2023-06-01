@@ -34,7 +34,7 @@ const createImagePost = async (req, res) => {
     PostData: req.file.filename,
     Caption: req.headers.caption,
     PostType: POST_TYPE_IMAGE,
-    PostedBy: "mike",
+    PostedBy: "anonymous",
     PostId: postID,
   });
   res.status(200);
@@ -47,7 +47,7 @@ const createTextPost = async (req, res) => {
     PostData: req.body.postData,
     Caption: req.body.caption,
     PostType: POST_TYPE_TEXT,
-    PostedBy: "mike",
+    PostedBy: "anonymous",
     PostId: postID,
   });
 

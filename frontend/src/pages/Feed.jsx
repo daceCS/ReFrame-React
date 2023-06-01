@@ -29,11 +29,12 @@ function Home() {
 
       if (response.ok) {
         setPosts(json);
+        console.log("yo");
       }
     };
 
     fetchPosts();
-  }, [sortVal]);
+  }, []);
 
   return (
     <>
