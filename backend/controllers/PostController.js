@@ -34,7 +34,7 @@ const createImagePost = async (req, res) => {
     PostData: req.file.filename,
     Caption: req.headers.caption,
     PostType: POST_TYPE_IMAGE,
-    PostedBy: "mike",
+    PostedBy: "anonymous",
     PostId: postID,
   });
   res.status(200);
@@ -78,24 +78,16 @@ const getAllPost = async (req, res) => {
   const SORT_TYPE_OLD = 1;
   const SORT_TYPE_VOTES = 2;
 
-  const sortType = req.params.sortType;
+  const sortType = req.params.sort;
   allPost = await Post.find();
 
   if (sortType == SORT_TYPE_NEW) {
-    let newArr = await allPost.sort({ createdAt: -1 });
-    res.json(newArr);
-    console.log(newArr);
-    return;
+    let newArr = all;
+    res.json(Post.find().sort({ createdAt: -1 }));
   } else if (sortType == SORT_TYPE_OLD) {
-    let newArr = await allPost.sort({ createdAt: 1 });
-    res.json(newArr);
-    console.log(newArr);
-    return;
+    res.json(Post.find().sort({ createdAt: 1 }));
   } else if (sortType == SORT_TYPE_VOTES) {
-    let newArr = await allPost.sort({ Votes: 1 });
-    res.json(newArr);
-    console.log(newArr);
-    return;
+    res.json(Post.find().sort({ Votes: 1 }));
   }
 
   console.log(allPost);
