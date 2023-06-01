@@ -103,7 +103,7 @@ const getAllUserPost = async (req, res) => {
 };
 
 const likePost = async (req, res) => {
-  const POST = req.body.postId;
+  const POST = req.params.id;
   let update = await Post.findOneAndUpdate(
     { PostId: POST },
     {
@@ -116,7 +116,7 @@ const likePost = async (req, res) => {
   res.json(returnPost);
 };
 const unlikePost = async (req, res) => {
-  const POST = req.body.postId;
+  const POST = req.params.id;
   let update = await Post.findOneAndUpdate(
     { PostId: POST },
     {

@@ -17,9 +17,9 @@ router.post("/create-image-post", upload.single("avatar"), createImagePost);
 
 router.post("/create-text-post", createTextPost);
 
-router.put("like-post", likePost);
+router.put("/like-post/:id", likePost);
 
-router.put("unlike-post", unlikePost);
+router.put("/unlike-post/:id", unlikePost);
 
 router.get("/send-post-image/:image", sendPostImage);
 

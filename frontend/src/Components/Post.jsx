@@ -3,7 +3,7 @@ import Heart from "react-animated-heart";
 import "../css/Post.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-function Post({ src, caption, author, postType }) {
+function Post({ src, caption, author, postType, id }) {
   const [imageURL, setImageURL] = useState(null);
   const [isClick, setClick] = useState(false);
   const POST_TYPE_IMAGE = 0;
@@ -26,10 +26,19 @@ function Post({ src, caption, author, postType }) {
     }
   }, []);
 
+  const likePost = async () => {
+    if (isClick) {
+      console.log(id);
+      fetch("http://173.255.210.209:4002/api/posts/like-post/" + id, {
+        method: "PUT",
+      });
+    }
+  };
+
   if (postType == POST_TYPE_IMAGE) {
     return (
       // picture posts
-      
+
       <div className="Post">
         <div className="caption">{caption}</div>
         <img
@@ -39,16 +48,19 @@ function Post({ src, caption, author, postType }) {
           width="90%"
           className="image"
         />
-    
-         
-          <div>
-            <p className="post-votes">Likes: </p>
-            <Link />
-          </div>
-       
-       
-          <p className="user-id">Post By: {author}</p>
-        
+
+        <div>
+          <Heart
+            isClick={isClick}
+            onClick={() => {
+              setClick(!isClick);
+              likePost();
+            }}
+          />
+          <p className="post-votes">Likes: </p>
+        </div>
+
+        <p className="user-id">Post By: {author}</p>
       </div>
     );
   } else {
@@ -57,21 +69,14 @@ function Post({ src, caption, author, postType }) {
       <div className="Post">
         <div className="caption">{caption}</div>
         <p>{src}</p>
-        <div className="post-interaction">
-          <button className="button-like" value="Like" id="like-button">
-            <i className="fa fa-heart"></i>
-            <span></span>
-          </button>
-          <div>
-            <p className="post-votes">Likes: </p>
-            <Link />
-          </div>
+        <div>
+          <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
+          <p className="post-votes">Likes: </p>
         </div>
         <div className="post-data">
           <p className="user-id">Post By: {author}</p>
         </div>
       </div>
-      
     );
   }
 }
