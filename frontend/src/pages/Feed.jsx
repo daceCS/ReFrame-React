@@ -40,11 +40,6 @@ function Home() {
       {console.log(sortVal)}
       <NavBar />
       <SideBar />
-      <ContentOptions
-        sortTopVoted={sortTopVoted}
-        SortNew={SortNew}
-        sortOld={sortOld}
-      />
       <br></br>
       <br></br>
       <br></br>
