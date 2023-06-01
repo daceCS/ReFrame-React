@@ -1,23 +1,19 @@
+import "../css/Post.css";
 function ContentOptions({ sortFollowing, sortTopVoted, SortNew, sortOld }) {
   return (
     <div id="content-options" className="button button--pen">
       <p id="sort-title">Sort By:</p>
       <input
         type="button"
-        id="sort-top-voted"
+        className="sort-top-voted"
         value="Most Liked"
         onClick={sortTopVoted}
       />
+      
+      <input type="button" className="sort-new" value=" Sort New" onClick={SortNew} />
       <input
         type="button"
-        id="sort-following"
-        value="Following"
-        onClick={sortFollowing}
-      />
-      <input type="button" id="sort-new" value=" Sort New" onClick={SortNew} />
-      <input
-        type="button"
-        id="sort-old"
+        className="sort-old"
         value="Sort Oldest"
         onClick={sortOld}
       />
