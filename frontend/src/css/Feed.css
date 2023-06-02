@@ -89,13 +89,13 @@ header {
 .menu {
   background-color: #0f223b;
   border: 2px solid #071e22;
-  left: 1350px;
+  left: 78%;
   z-index: 4000;
 }
 .createButton{
   background-color: #0f223b;
   
-  left: 1500px;
+  left: 85%;
 }
 .user-id {
   position: absolute;
@@ -990,8 +990,8 @@ a:hover {
   position: fixed;
 }
 .upload-file {
-  top: 200px;
-  left: 300px;
+  top: 300px;
+  left: 800px;
   position: relative;
 }
 #text-input {
@@ -1000,6 +1000,8 @@ a:hover {
   position: relative;
 }
 .upload-button {
+  top: 100px;
+  left: -390px;
   margin-top: 20px;
   padding: 0.6em 2em;
   border: none;
@@ -1061,7 +1063,7 @@ a:hover {
   border-radius: 10px;
 }
 .file-upload {
-  top: -400px;
+  top: 0px;
   margin-top: 20px;
   padding: 0.6em 2em;
   border: none;
@@ -1121,4 +1123,9 @@ a:hover {
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+#caption-upload {
+  top: 50px;
+  left: -240px;
+  position: relative;
 }

@@ -78,16 +78,10 @@ const getAllPost = async (req, res) => {
   const SORT_TYPE_OLD = 1;
   const SORT_TYPE_VOTES = 2;
 
-  const sortType = req.params.sortType;
+  const sortType = req.params.sort;
   allPost = await Post.find();
 
-  if (sortType == SORT_TYPE_NEW) {
-    res.json(allPost.sort({ createdAt: -1 }));
-  } else if (sortType == SORT_TYPE_OLD) {
-    res.json(allPost.sort({ createdAt: 1 }));
-  } else if (sortType == SORT_TYPE_VOTES) {
-    res.json(allPost.sort({ Votes: 1 }));
-  }
+  res.json(allPost);
 
   console.log(allPost);
 };

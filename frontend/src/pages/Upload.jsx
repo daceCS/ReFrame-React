@@ -44,10 +44,7 @@ function Upload() {
         className="upload-file"
       >
         <input type="file" className="file-upload" onChange={fileOnChange} />
-        <input type="text" onChange={changeCaption} id="caption-upload" />
-        <textarea name="text input" className="text-input" cols="60" rows="40">
-          {" "}
-        </textarea>
+        <input type="text" onChange={changeCaption} id="caption-upload"/>
         <button className="upload-button" onClick={upload}>
           Upload Post
         </button>
